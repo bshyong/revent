@@ -1,7 +1,13 @@
 <div class="row">
   <div class="large-12 columns">
-    <h2>Welcome to Foundation</h2>
-    <p>This is version 4.0.5.</p>
+    <h2 style="margin-bottom:5px;">Event space [台中]</h2>
+    <p>Beautiful space in Taichung.
+      <br />
+      <span class="radius secondary label">80 平</span>
+      <span class="radius secondary label">Private event</span>
+      <span class="radius secondary label">Wedding</span>
+      <span class="radius secondary label">Vacation rental</span>
+    </p>
     <hr />
   </div>
 </div>
@@ -12,9 +18,9 @@
     <div class="row">
       <div class="large-12 hide-for-small">
         <div id="featured" data-orbit>
-          <img src="http://placehold.it/1200x500&text=Slide Image 1" alt="slide image">
-          <img src="http://placehold.it/1200x500&text=Slide Image 2" alt="slide image">
-          <img src="http://placehold.it/1200x500&text=Slide Image 3" alt="slide image">
+          <% [3,6,8].each do |i| %>
+            <img src="/images/<%= i %>.jpg" width="1200px;">
+          <% end %>
         </div>
       </div>
     </div>
@@ -27,5 +33,16 @@
       </div>
     </div>
     <!-- End Mobile Header -->
+
+    <div class="row">
+      <div class="large-12 columns">
+        <% [1,2,4,5,7,9,10].each do |i| %>
+          <a class="th">
+          <img src="/images/<%= i %>.jpg" style="height:300px;">
+        </a>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
