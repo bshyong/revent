@@ -8,6 +8,7 @@
   <title><%= "Title" || @title %></title>
 
   <link rel="stylesheet" href="stylesheets/normalize.css" />
+  <link rel="stylesheet" href="stylesheets/lightbox.css" />
   <link rel="stylesheet" href="stylesheets/app.css" />
 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
@@ -45,10 +46,11 @@
   <%=yield%>
 
   <script>
-  document.write('<script src=' +
-  ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
-  '.js><\/script>')
+  // document.write('<script src=' +
+  // ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+  // '.js><\/script>')
   </script>
+  <script src="javascripts/vendor/jquery.js"></script>
 
   <script src="javascripts/foundation/foundation.js"></script>
 
@@ -77,6 +79,8 @@
   <script src="javascripts/foundation/foundation.tooltips.js"></script>
 
   <script src="javascripts/foundation/foundation.topbar.js"></script>
+
+  <script src="javascripts/vendor/lightbox-2.6.min.js"></script>
 
 
   <script>

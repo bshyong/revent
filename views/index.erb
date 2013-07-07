@@ -1,3 +1,12 @@
+<style>
+  img.lb-image{
+    max-height:300px;
+  }
+  li{
+    list-style-position: inside;
+  }
+</style>
+
 <div class="row">
   <div class="large-12 columns">
     <h2 style="margin-bottom:5px;">Event space [台中]</h2>
@@ -35,14 +44,44 @@
     <!-- End Mobile Header -->
 
     <div class="row">
-      <div class="large-12 columns">
-        <% [1,2,4,5,7,9,10].each do |i| %>
-          <a class="th">
-          <img src="/images/<%= i %>.jpg" style="height:300px;">
+      <div class="large-3 columns">
+        <ul class="pricing-table">
+          <li class="title">Standard</li>
+          <li class="description">An awesome description</li>
+          <li class="bullet-item">1 Database</li>
+          <li class="bullet-item">5GB Storage</li>
+          <li class="bullet-item">20 Users</li>
+          <li class="price">$99.99</li>
+          <li class="cta-button"><a class="button" href="#">Buy Now</a></li>
+        </ul>
+      </div>
+      <div class="large-6 columns panel">
+        <h4>Available amenities</h4>
+        <ul>
+          <li>Item 1</li>
+        </ul>
+      </div>
+      <div class="large-3 columns">
+        <% img_arry = [1,2,4,5,7,9,10] %>
+        <% deleted = img_arry.delete_at(rand(0..img_arry.length-1)) %>
+        <a data-lightbox="property_1" href="/images/<%= deleted %>.jpg">
+          <h5>Click for more photos >></h5>
+          <img class="th" src="/images/<%= deleted %>.jpg" style="max-height:300px;">
         </a>
+        <% img_arry.each do |i| %>
+          <a class="th" data-lightbox="property_1" href="/images/<%= i %>.jpg" style="display:none;">
+            <img src="/images/<%= i %>.jpg" style="max-height:300px;">
+          </a>
         <% end %>
       </div>
     </div>
+  </div>
+</div>
 
+<div class="row">
+  <div class="large-12 columns">
+    <hr />
+    (c) <%= Time.now.year %> Revent.
+    <hr />
   </div>
 </div>
