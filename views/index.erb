@@ -1,9 +1,33 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script>
+  function ChecklistCtrl($scope) {
+    $scope.services = [
+      {text:'Service one', added:true, cost: 15},
+      {text:'Service two', added:false, cost: 25}];
+
+    $scope.baseRate = 100;
+
+    $scope.totalCost = function(){
+      var total = $scope.baseRate;
+      angular.forEach($scope.services, function(service){
+        total += service.added ? service.cost : 0;
+      });
+      return total;
+    }
+  }
+</script>
 <style>
   img.lb-image{
     max-height:300px;
   }
   li{
     list-style-position: inside;
+  }
+  ul.pricing-table li.bullet-item{
+    text-align:left;
+  }
+  ul.pricing-table li.description{
+    text-align: left;
   }
 </style>
 
@@ -44,14 +68,19 @@
     <!-- End Mobile Header -->
     <hr />
     <div class="row">
-      <div class="large-3 columns">
+      <div ng-controller="ChecklistCtrl" class="large-3 columns">
         <ul class="pricing-table">
           <li class="title">Reservation rates</li>
-          <li class="description">Enter your desired services here:</li>
-          <li class="bullet-item">1 Database</li>
-          <li class="bullet-item">5GB Storage</li>
-          <li class="bullet-item">20 Users</li>
-          <li class="price">$99.99</li>
+          <li class="description">Enter your desired services below:</li>
+          <li ng-repeat="service in services" class="bullet-item">
+            <input type="checkbox" ng-model="service.added">
+            {{service.text}} (${{service.cost}})
+          </li>
+          <li class="bullet-item">
+            <input type="checkbox" disabled="true" checked="true">
+            Online guestlist (Free)
+          </li>
+          <li class="price">${{totalCost()}} per day</li>
           <li class="cta-button"><a class="button" href="#">Reserve Now</a></li>
         </ul>
       </div>
